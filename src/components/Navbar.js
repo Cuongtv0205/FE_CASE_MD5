@@ -1,6 +1,13 @@
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function Navbar() {
+const dispatch = useDispatch();
+const user = useSelector(state => {
+    console.log(state)
+    return state
+})
+
     return (
         <>
             <div className="row">
@@ -16,7 +23,7 @@ export default function Navbar() {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="add-quiz">Add Quiz<span
+                                    <Link className="nav-link" to="add-blog">Add Blog<span
                                         className="sr-only">(current)</span></Link>
                                 </li>
                                 <li className="nav-item">
@@ -39,8 +46,9 @@ export default function Navbar() {
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
+                                {user.username}
                                 <Link to={'/'}>
-                                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Logout
+                                    <button className="ml-3 btn btn-outline-success my-2 my-sm-0" type="submit">Logout
                                     </button>
                                 </Link>
                             </form>

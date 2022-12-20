@@ -1,9 +1,9 @@
-export default function AddQuiz() {
+export default function AddBlog() {
     return (
         <>
            <div className="row">
                <div className="clo-12">
-                   AddQuiz
+                   AddBlog
                </div>
            </div>
 
