@@ -1,15 +1,15 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function Navbar() {
 const dispatch = useDispatch();
+const navigate = useNavigate();
 const user = useSelector(state => {
-    console.log(state)
+
     return state.user.user.user
 })
     return (
         <>
-            {/*<img src="https://anhdepbonphuong.com/wp-content/uploads/2016/02/tai-12-hinh-game-3D-dep-nhat-lam-hinh-nen-PC-dien-thoai-12.png" className="img-fluid" alt="..." style={{width:"100%",height:"50%"}}/>*/}
             <div className="row">
                 <div className="col-12">
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,13 +34,19 @@ const user = useSelector(state => {
                                         <a className="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </li>
+                                <li className="nav-item active">
+                                    <Link className="dropdown-item" to={'/home/my-blogs'}> My Blogs</Link>
+                                </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
                                 <h3>{user.username}</h3>
-                                <Link to={'/'}>
-                                    <button className="ml-3 btn btn-outline-success my-2 my-sm-0" type="submit">Logout
+
+                                    <button onClick={()=>{
+                                        localStorage.clear()
+                                        navigate('/')
+                                    }} className="ml-3 btn btn-outline-success my-2 my-sm-0" type="submit">Logout
                                     </button>
-                                </Link>
+
                             </form>
                         </div>
                     </nav>

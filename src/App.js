@@ -9,20 +9,30 @@ import ListBlog from "./pages/home/blog/ListBlog";
 import AddBlog from "./pages/home/blog/AddBlog";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
+import MyBlog from "./pages/home/blog/MyBlog";
 
 
 function App() {
-
+    const user = useSelector(state => {
+        return state.user.user.user
+    })
     return (
         <>
             <div className="container-fluid">
                 <Routes>
-                    <Route path={''}element={<Login></Login>}/>
+                    <Route path={''} element={<Login></Login>}/>
                     <Route path={'register'} element={<Register></Register>}/>
-                    <Route path={'home'} element={<Home/>}>
-                        <Route path={''} element={<ListBlog/>}></Route>
-                        <Route path={'add-blog'} element={<AddBlog/>}></Route>
-                    </Route>
+                    {
+                        user != null ?
+                            <Route path={'home'} element={<Home/>}>
+                                <Route path={''} element={<ListBlog/>}></Route>
+                                <Route path={'add-blog'} element={<AddBlog/>}></Route>
+                                <Route path={'my-blog'} element={<MyBlog/>}></Route>
+                            </Route>
+                            :
+                            <Route path="*" element={<Login/>}/>
+                    }
+
                 </Routes>
             </div>
         </>

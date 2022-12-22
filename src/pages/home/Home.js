@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar";
 import {Outlet} from "react-router";
+import AddBlog from "./blog/AddBlog";
 
 export default function Home() {
     return (

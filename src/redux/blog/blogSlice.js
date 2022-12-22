@@ -3,7 +3,7 @@ import {addBlogs, getBlogs} from "../../service/blogServices";
 
 
 const initialSate = {
-    blogs : []
+    blogs: []
 }
 
 
@@ -12,12 +12,13 @@ const blogSlice = createSlice({
     initialState: initialSate,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(getBlogs.fulfilled,(state,action)=>{
+        builder.addCase(getBlogs.fulfilled, (state, action) => {
             state.blogs = action.payload;
         });
-        builder.addCase(addBlogs.fulfilled,(state,action)=>{
-            state.blogs.push(action.payload.data)
+        builder.addCase(addBlogs.fulfilled, (state, action) => {
+            state.blogs = [...state.blogs, action.payload.data]
         });
+
     }
 })
 
