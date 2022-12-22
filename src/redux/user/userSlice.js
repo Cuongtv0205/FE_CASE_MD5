@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {login} from "../../service/userService";
 
 const initialState = {
-    currentUser : {}
+    currentUser : []
 }
 const userSlice = createSlice({
     name:'user',
