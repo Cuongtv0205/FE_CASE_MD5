@@ -1,9 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getBlogs} from "../../../service/blogServices";
+import {useParams} from "react-router";
 
 export default function MyBlog() {
     const dispatch = useDispatch();
+    let id = useParams()
+    console.log(id)
     const blogs = useSelector(state => {
             console.log(state)
             return state.blogs.blogs

@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {login} from "../../service/userService";
 import {deleteUser, getUser} from "../../service/adminService";
 
 const initialState = {
@@ -13,7 +12,6 @@ const adminSlice = createSlice({
             state.currentAdmin = action.payload
         })
         builder.addCase(deleteUser.fulfilled, (state, action) => {
-            console.log(action)
             state.currentAdmin = state.currentAdmin.filter((item) => {
                 return item.id !== action.payload
             })

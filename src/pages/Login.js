@@ -1,7 +1,5 @@
-import {Link, useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {getBlogs} from "../service/blogServices";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import {login} from "../service/userService";
 import {Field, Form, Formik} from "formik";
 
@@ -11,7 +9,7 @@ export default function Login() {
     const handleLogin = (values) => {
         dispatch(login(values)).then((data) => {
             if (!data.payload.token) {
-                alert("sai r")
+                alert("sai tk mk")
                 navigate("/login")
             } else {
                 localStorage.setItem('token', data.payload.token)

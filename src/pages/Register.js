@@ -24,10 +24,10 @@ export default function Register() {
                 <Formik initialValues={{
                     username: '', password: ''
                 }} onSubmit={(values, {resetForm}) => {
-                    console.log(values)
                     if (values.username === '' || values.password === '') {
                         alert("ko dc de trong")
                     } else {
+                        values.avatar = ''
                         handleRegister(values)
                         resetForm()
                     }

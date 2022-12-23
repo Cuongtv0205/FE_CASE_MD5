@@ -20,7 +20,7 @@ export default function Admin() {
                 <Navbar/>
             </div>
         </div>
-        <table className="table">
+        <table className="table" style={{marginTop :90}}>
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -30,7 +30,8 @@ export default function Admin() {
             </tr>
             </thead>
             <tbody>
-            {users.map((item, index) => (<tr>
+            {users.map((item, index) => (
+                <tr>
                 <td>{index + 1}</td>
                 <td>{item.username}</td>
                 <td>{item.id}</td>

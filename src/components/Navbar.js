@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 export default function Navbar() {
     const username = localStorage.getItem("username")
+    const id = localStorage.getItem("id")
     let navigate = useNavigate()
     const logout = () => {
         localStorage.clear()
@@ -10,9 +11,10 @@ export default function Navbar() {
     }
     return (
         <>
-            <div className="row">
-                <div className="col-12">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="row" >
+                <div className="col-12" style={{position : "fixed",
+                                                    zIndex: 1}}>
+                    <nav  className="navbar navbar-expand-lg navbar-light bg-light">
                         <Link className="navbar-brand" to="">Logo</Link>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -28,7 +30,7 @@ export default function Navbar() {
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
-                                <Link className="nav-link" to={`${username}`}>{username}<span
+                                <Link className="nav-link" to={`${id}`}>{username}<span
                                     className="sr-only">(current)</span></Link>
                                 <button className="ml-3 btn btn-outline-success my-2 my-sm-0" onClick={() => {
                                     logout()

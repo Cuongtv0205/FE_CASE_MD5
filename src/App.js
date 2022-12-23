@@ -3,9 +3,10 @@ import Login from "./pages/Login";
 import {Route, Routes} from "react-router";
 import Register from "./pages/Register";
 import Home from "./pages/User/home";
-import ListBlog from "./pages/home/blog/ListBlog";
-import AddBlog from "./pages/home/blog/AddBlog";
+import ListBlog from "./pages/User/blog/ListBlog";
+import AddBlog from "./pages/User/blog/AddBlog";
 import Admin from "./pages/Admin/Admin";
+import Info from "./redux/user/Info";
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
                     <Route path={'/'} element={<Home/>}>
                         <Route path={''} element={<ListBlog/>}></Route>
                         <Route path={'add-blog'} element={<AddBlog/>}></Route>
-                        <Route path={':username'} element={<AddBlog/>}></Route>
+                        <Route path={':username'} element={<Info/>}></Route>
                     </Route>
                 </Routes>
             </div>
